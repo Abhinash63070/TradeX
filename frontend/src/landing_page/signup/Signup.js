@@ -12,7 +12,7 @@ function Signup() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const res = await fetch('http://localhost:3002/api/auth/signup', {
+        const res = await fetch('https://tradex-backend-4qt7.onrender.com/api/auth/signup', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, username, password })
@@ -67,7 +67,10 @@ function Signup() {
                     <button type="submit" className="signup-btn">Sign Up</button>
                 </form>
                 {message && <p className="signup-message">{message}</p>}
-                <p className="signup-login-link">Already have an account? <a href="/Signin">Sign in</a></p>
+                <p className="signup-login-link">
+                    Already have an account? <a href="/signin">Sign in</a>
+                </p>
+
             </div>
         </div>
     );
