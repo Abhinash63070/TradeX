@@ -27,7 +27,7 @@ function Signup() {
     return (
         <div className="signup-container">
             <div className="signup-box">
-                <img src="/media/images/logo.svg" alt="Zerodha Logo" className="signup-logo" />
+                <img src="/media/images/logo.png" alt="TradeX Logo" className="signup-logo" style={{ width: '160px', height: 'auto' }} />
                 <h2>Create new account</h2>
                 <form onSubmit={handleSubmit} className="signup-form">
                     <input
@@ -56,7 +56,7 @@ function Signup() {
                             className="signup-input"
                         />
                         <button
-                            type="button"
+                            type="submit"
                             className="signup-show-hide"
                             onClick={() => setShowPassword(!showPassword)}
                             tabIndex={-1}

@@ -20,7 +20,9 @@ function Signin() {
         if (data.token) {
             localStorage.setItem('token', data.token);
             setMessage('Signin successful!');
-            window.location.href = "http://localhost:3000"; // Redirect to dashboard app
+            setTimeout(() => {
+                window.location.href = "https://tradex-dashboard.onrender.com";
+            }, 1000); // Redirect to dashboard after 1 second
         } else {
             setMessage(data.message || 'Signin failed');
         }
@@ -29,7 +31,7 @@ function Signin() {
     return (
         <div className="signin-container">
             <div className="signin-box">
-                <img src="/media/images/logo.svg" alt="Zerodha Logo" className="signin-logo" />
+                <img src="/media/images/logo.png" alt="TradeX Logo" className="signin-logo" style={{ width: '160px', height: 'auto' }} />
                 <h2>Sign in to Zerodha</h2>
                 <form onSubmit={handleSubmit} className="signin-form">
                     <input
@@ -50,7 +52,7 @@ function Signin() {
                             className="signin-input"
                         />
                         <button
-                            type="button"
+                            type="submit"
                             className="signin-show-hide"
                             onClick={() => setShowPassword(!showPassword)}
                             tabIndex={-1}
