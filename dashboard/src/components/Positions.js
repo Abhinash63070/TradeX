@@ -10,7 +10,7 @@ const Positions = () => {
 
   useEffect(() => {
     // Fetch positions data from the server
-    axios.get("http://localhost:3002/allPosition").then((res) => {
+    axios.get("https://tradex-backend-4qt7.onrender.com/allPosition").then((res) => {
       setPositions(res.data);
     });
   }, []);
