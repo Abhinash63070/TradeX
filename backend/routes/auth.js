@@ -7,7 +7,7 @@ const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || "your_very_secret_key_here";
 
 // ✅ Signup
-router.post("/signup", async (req, res) => {
+const signupHandler = async (req, res) => {
   const { username, email, password } = req.body;
 
   try {
@@ -24,10 +24,10 @@ router.post("/signup", async (req, res) => {
     console.error("Signup error:", err);
     res.status(500).json({ message: "Signup failed" });
   }
-});
+};
 
 // ✅ Signin
-router.post("/signin", async (req, res) => {
+const signinHandler = async (req, res) => {
   const { email, password } = req.body;
 
   try {
@@ -48,6 +48,9 @@ router.post("/signin", async (req, res) => {
     console.error("Signin error:", err);
     res.status(500).json({ message: "Signin failed" });
   }
-});
+};
+
+router.post('/signup', signupHandler);
+router.post('/signin', signinHandler);
 
 module.exports = router;

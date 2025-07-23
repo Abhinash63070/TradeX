@@ -10,15 +10,19 @@ const { HoldingModel } = require("./model/HoldingModel");
 const { PositionsModel } = require("./model/PositionsModel");
 const { OrdersModel } = require("./model/OrdersModel");
 
+const authRoutes = require('./routes/auth');
+
 const PORT = process.env.PORT || 3002;
 const uri = process.env.MONGO_URL;
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://your-frontend-domain.onrender.com', // or '*' for testing
+  credentials: true
+}));
 app.use(bodyParser.json());
-
-
+app.use('/api/auth', authRoutes);
 
 app.get("/allHoldings", async (req, res) => {
   let allHoldings = await HoldingModel.find({});
