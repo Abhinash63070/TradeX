@@ -19,9 +19,9 @@ const app = express();
 
 app.use(cors({
   origin: [
-    'http://localhost:3000', // local frontend
+    'http://localhost:3000', // local backend
     'http://localhost:3001', // if you run frontend on this port
-    'https://your-frontend-domain.onrender.com', // deployed frontend
+    "https://tradex-frontend.onrender.com", // deployed frontend
     'https://tradex-dashboard.onrender.com' // dashboard if needed
   ],
   credentials: true
